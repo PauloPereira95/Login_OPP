@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -102,8 +105,24 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <?php 
+                            if(isset($_SESSION["userid"]))
+                            {
+                        ?>  
+                        <li><a href="#"><?= $_SESSION["useruid"];?></a></li>
+                        <li><a href="includes/logout.inc.php" class="header-login-a">Logout</a></li>
+                        <?php      
+                            }  
+                            else 
+                            {
+                        ?>
+                        <li><a href="./register.php">SIGNUP</a></li>
+                        <li><a href="./login.php" class="header-login-a">LOGIN</a></li>
+                        <?php
+                            }   
+                         ?>                  
+                        <!-- <div class="small">Logged in as:</div>
+                        Start Bootstrap -->
                     </div>
                 </nav>
             </div>
